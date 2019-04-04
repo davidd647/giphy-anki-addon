@@ -17,7 +17,7 @@ Wrote some JS and stuff a while back to take info from the {{Back}} of your card
 
 ----
 
-(Disclaimer: There may still be some bugs. This is more experimental than production-class code. If you bump into a bug, feel free to let me know!)
+(Disclaimer: I've only tested this on Mac OSX. There may still be some bugs. This is more experimental than production-class code. If you bump into a bug, feel free to let me know!)
 
 ----
 
