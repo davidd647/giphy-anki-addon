@@ -94,7 +94,7 @@ def onFocusLost(flag, note, fidx):
   # For each gif
   for result in results:
     # Dive into the object (library? list?) and get a URL for the gif
-    downloadUrl = result[u'images'][u'fixed_height'][u'url']
+    downloadUrl = result[u'images'][u'fixed_height_small'][u'url']
     
     # If there's a good name we can give the gif (the code in the URL)
     match = re.search(regex, downloadUrl)
