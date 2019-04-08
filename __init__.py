@@ -17,7 +17,9 @@ from anki.hooks import addHook
 
 import json, re, urllib
 import urllib.request
+import urllib.parse
 import os.path
+from pathlib import Path
 
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
@@ -79,7 +81,7 @@ def onFocusLost(flag, note, fidx):
   # wikipedia.set_lang("en") # can also be fr, en, jp
   # query = wikipedia.summary(srcTxt, sentences=2)
 
-  searchQuery = srcTxt
+  searchQuery = urllib.parse.quote_plus(srcTxt)
 
   # Construct the URL to use for Giphy's API
   giphyUrl = "http://api.giphy.com/v1/gifs/search?q=" + searchQuery + "&api_key=" + apiKey + "&limit=" + resultsLimit
@@ -106,7 +108,7 @@ def onFocusLost(flag, note, fidx):
 
     # Get the file, and save it as the filename
     resp = urllib.request.urlopen(downloadUrl)
-    with open(os.path.join(downloadPath,filename), 'wb') as f:
+    with open(os.path.join(Path(downloadPath),filename), 'wb') as f:
       f.write(resp.read())
   
   note[dst] = giphyResultString
